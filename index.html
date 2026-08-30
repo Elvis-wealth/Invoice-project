@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreelanceDesk — Invoice &amp; Contract Automation</title>
+    <meta name="description" content="A premium invoice and contract automation dashboard for freelance developers, designers, and consultants. Manage clients, create invoices, and automate contracts.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ========== SIDEBAR ========== -->
+    <aside id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                    <rect width="28" height="28" rx="6" fill="#ffffff"/>
+                    <path d="M8 8h12v2H8V8zm0 4h8v2H8v-2zm0 4h10v2H8v-2z" fill="#111111"/>
+                </svg>
+                <span class="logo-text">FreelanceDesk</span>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#dashboard" class="nav-link active" data-view="dashboard">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                    <rect x="14" y="14" width="7" height="7"></rect>
+                </svg>
+                <span>Dashboard</span>
+            </a>
+            <a href="#invoices" class="nav-link" data-view="invoices">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                <span>Invoices</span>
+            </a>
+            <a href="#contracts" class="nav-link" data-view="contracts">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="12" y1="18" x2="12" y2="12"></line>
+                    <line x1="9" y1="15" x2="15" y2="15"></line>
+                </svg>
+                <span>Contracts</span>
+            </a>
+            <a href="#clients" class="nav-link" data-view="clients">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                <span>Clients</span>
+            </a>
+            <a href="#settings" class="nav-link" data-view="settings">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+                <span>Settings</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="sidebar-user">
+                <div class="user-avatar" id="sidebar-avatar">FD</div>
+                <div class="user-info">
+                    <span class="user-name" id="sidebar-username">Freelancer</span>
+                    <span class="user-role" id="sidebar-business">Set up your profile</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Mobile Overlay -->
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+    <!-- ========== MAIN CONTENT ========== -->
+     
+    <main id="main-content" class="main-content">
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <div class="top-bar-left">
+                <button id="menu-toggle" class="menu-toggle" aria-label="Toggle menu">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <h1 id="page-title" class="page-title">Dashboard</h1>
+            </div>
+            <div class="top-bar-right">
+                <div class="top-bar-date" id="current-date"></div>
+            </div>
+        </header>
+
+        <!-- Views Container -->
+        <div class="views-container">
+
+            <!-- ===== DASHBOARD VIEW ===== -->
+            <section id="view-dashboard" class="view active">
+                <div class="quick-actions">
+                    <button class="btn btn-primary" id="qa-invoice">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        New Invoice
+                    </button>
+                    <button class="btn btn-secondary" id="qa-contract">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        New Contract
+                    </button>
+                    <button class="btn btn-secondary" id="qa-client">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        Add Client
+                    </button>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-label">Total Revenue</span>
+                            <span class="stat-value" id="stat-revenue">$0.00</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-label">Pending</span>
+                            <span class="stat-value" id="stat-pending">$0.00</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-label">Active Contracts</span>
+                            <span class="stat-value" id="stat-contracts">0</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-label">Total Clients</span>
+                            <span class="stat-value" id="stat-clients">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <div class="section-header">
+                        <h2 class="section-title">Revenue Overview</h2>
+                        <span class="section-subtitle">Last 6 months</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="revenue-chart"></canvas>
+                    </div>
+                </div>
+
+                <div class="section-card">
+                    <div class="section-header">
+                        <h2 class="section-title">Recent Activity</h2>
+                    </div>
+                    <div id="activity-feed" class="activity-feed">
+                        <div class="empty-state">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#cccccc" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                            <p>No recent activity</p>
+                            <span>Create your first invoice, contract, or add a client to get started.</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ===== INVOICES VIEW ===== -->
+            <section id="view-invoices" class="view">
+                <div class="view-toolbar">
+                    <div class="toolbar-left">
+                        <div class="search-box">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                            <input type="text" id="invoice-search" placeholder="Search invoices..." class="search-input">
+                        </div>
+                        <select id="invoice-filter" class="filter-select">
+                            <option value="all">All Status</option>
+                            <option value="draft">Draft</option>
+                            <option value="sent">Sent</option>
+                            <option value="paid">Paid</option>
+                            <option value="overdue">Overdue</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary" id="btn-new-invoice">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        New Invoice
+                    </button>
+                </div>
+                <div class="table-wrapper" id="invoices-table-wrapper">
+                    <table class="data-table" id="invoices-table">
+                        <thead>
+                            <tr>
+                                <th>Invoice #</th>
+                                <th>Client</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Issued</th>
+                                <th>Due Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="invoices-tbody"></tbody>
+                    </table>
+                </div>
+                <div id="invoices-empty" class="empty-state" style="display:none;">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#cccccc" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                    <p>No invoices yet</p>
+                    <span>Create your first invoice to start tracking payments.</span>
+                    <button class="btn btn-primary btn-empty" id="btn-empty-invoice">Create Invoice</button>
+                </div>
+            </section>
+
+            <!-- ===== CONTRACTS VIEW ===== -->
+            <section id="view-contracts" class="view">
+                <div class="view-toolbar">
+                    <div class="toolbar-left">
+                        <div class="search-box">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                            <input type="text" id="contract-search" placeholder="Search contracts..." class="search-input">
+                        </div>
+                        <select id="contract-filter" class="filter-select">
+                            <option value="all">All Status</option>
+                            <option value="draft">Draft</option>
+                            <option value="active">Active</option>
+                            <option value="completed">Completed</option>
+                            <option value="expired">Expired</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary" id="btn-new-contract">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        New Contract
+                    </button>
+                </div>
+                <div class="table-wrapper" id="contracts-table-wrapper">
+                    <table class="data-table" id="contracts-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Client</th>
+                                <th>Value</th>
+                                <th>Status</th>
+                                <th>Start</th>
+                                <th>End</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="contracts-tbody"></tbody>
+                    </table>
+                </div>
+                <div id="contracts-empty" class="empty-state" style="display:none;">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#cccccc" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                    <p>No contracts yet</p>
+                    <span>Create your first contract to manage client agreements.</span>
+                    <button class="btn btn-primary btn-empty" id="btn-empty-contract">Create Contract</button>
+                </div>
+            </section>
+
+            <!-- ===== CLIENTS VIEW ===== -->
+            <section id="view-clients" class="view">
+                <div class="view-toolbar">
+                    <div class="toolbar-left">
+                        <div class="search-box">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                            <input type="text" id="client-search" placeholder="Search clients..." class="search-input">
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="btn-new-client">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        Add Client
+                    </button>
+                </div>
+                <div id="clients-grid" class="clients-grid"></div>
+                <div id="clients-empty" class="empty-state" style="display:none;">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#cccccc" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                    <p>No clients yet</p>
+                    <span>Add your first client to start managing your freelance relationships.</span>
+                    <button class="btn btn-primary btn-empty" id="btn-empty-client">Add Client</button>
+                </div>
+            </section>
+
+            <!-- ===== SETTINGS VIEW ===== -->
+            <section id="view-settings" class="view">
+                <div class="settings-grid">
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h2 class="section-title">Your Profile</h2>
+                            <span class="section-subtitle">This information appears on your invoices</span>
+                        </div>
+                        <form id="profile-form" class="settings-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="profile-name">Full Name</label>
+                                    <input type="text" id="profile-name" placeholder="John Doe">
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-email">Email</label>
+                                    <input type="email" id="profile-email" placeholder="john@example.com">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="profile-business">Business Name</label>
+                                    <input type="text" id="profile-business" placeholder="Doe Design Studio">
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-phone">Phone</label>
+                                    <input type="tel" id="profile-phone" placeholder="+1 (555) 000-0000">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="profile-website">Website</label>
+                                    <input type="url" id="profile-website" placeholder="https://johndoe.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="profile-address">Address</label>
+                                    <textarea id="profile-address" rows="3" placeholder="123 Main St, City, State 12345"></textarea>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Profile</button>
+                        </form>
+                    </div>
+
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h2 class="section-title">Invoice Defaults</h2>
+                            <span class="section-subtitle">Default values for new invoices</span>
+                        </div>
+                        <form id="defaults-form" class="settings-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="default-currency">Currency Symbol</label>
+                                    <input type="text" id="default-currency" placeholder="$" maxlength="3">
+                                </div>
+                                <div class="form-group">
+                                    <label for="default-tax">Default Tax Rate (%)</label>
+                                    <input type="number" id="default-tax" placeholder="0" min="0" max="100" step="0.5">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="default-terms">Payment Terms</label>
+                                    <select id="default-terms">
+                                        <option value="due-on-receipt">Due on Receipt</option>
+                                        <option value="net-15">Net 15</option>
+                                        <option value="net-30" selected>Net 30</option>
+                                        <option value="net-45">Net 45</option>
+                                        <option value="net-60">Net 60</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="default-prefix">Invoice Prefix</label>
+                                    <input type="text" id="default-prefix" placeholder="INV" maxlength="10">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Defaults</button>
+                        </form>
+                    </div>
+
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h2 class="section-title">Data Management</h2>
+                            <span class="section-subtitle">Export, import, or reset your data</span>
+                        </div>
+                        <div class="data-actions">
+                            <div class="data-action-item">
+                                <div>
+                                    <h3>Export Data</h3>
+                                    <p>Download all your data as a JSON file for backup.</p>
+                                </div>
+                                <button class="btn btn-secondary" id="btn-export">Export JSON</button>
+                            </div>
+                            <div class="data-action-item">
+                                <div>
+                                    <h3>Import Data</h3>
+                                    <p>Restore data from a previously exported JSON file.</p>
+                                </div>
+                                <label class="btn btn-secondary" for="import-file">Import JSON</label>
+                                <input type="file" id="import-file" accept=".json" style="display:none;">
+                            </div>
+                            <div class="data-action-item data-action-danger">
+                                <div>
+                                    <h3>Clear All Data</h3>
+                                    <p>Permanently delete all invoices, contracts, and clients. This cannot be undone.</p>
+                                </div>
+                                <button class="btn btn-danger" id="btn-clear-data">Clear Data</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- ========== MODAL ========== -->
+    <div id="modal-overlay" class="modal-overlay">
+        <div id="modal-container" class="modal-container">
+            <div class="modal-header">
+                <h2 id="modal-title" class="modal-title"></h2>
+                <button id="modal-close" class="modal-close" aria-label="Close modal">&times;</button>
+            </div>
+            <div id="modal-body" class="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- ========== CONFIRM DIALOG ========== -->
+    <div id="confirm-overlay" class="modal-overlay">
+        <div class="confirm-dialog">
+            <h3 id="confirm-title">Are you sure?</h3>
+            <p id="confirm-message"></p>
+            <div class="confirm-actions">
+                <button class="btn btn-secondary" id="confirm-cancel">Cancel</button>
+                <button class="btn btn-danger" id="confirm-ok">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== TOAST CONTAINER ========== -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
